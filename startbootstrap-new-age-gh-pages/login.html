@@ -1,3 +1,16 @@
+<?php
+
+if (isset($_POST['submit'])) {
+$str=include('php/login.php');
+if($str=='1')
+{
+	header('Location: ../blend/user_home.html');
+}
+else
+{
+}
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +21,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>New Age - Start Bootstrap Theme</title>
+    <title>Login Page</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -38,11 +51,19 @@
           <div class="col-lg-7 my-auto">
             <div class="header-content mx-auto">
               <h2 class="mb-5">Enter your credentials and login!</h2><br>
-			  <form action=""><!--LINK IT TO user_home.html in blend folder in php><!-->
-			  <input type='text' placeholder="Enter your username" /><br><br><br>
-			  <input type='password' placeholder="Enter your password" /><br><br><br>
-              <input type="submit" value="login" class="btn btn-outline btn-xl js-scroll-trigger">
-			  </form>
+			  
+			  <form id="frm" action="" method="post">
+   <div class="container">
+   
+			  <input type='text' name="username" placeholder="Enter your username" required>
+			  <br><br><br>
+			  <input type='password' name="pwd" placeholder="Enter your password" required><br><br><br>
+			  <input type="submit" name="submit" value="LOGIN" class="btn btn-outline btn-xl js-scroll-trigger">
+    
+  </div>
+
+
+</form>
 			</div>
           </div>
        
