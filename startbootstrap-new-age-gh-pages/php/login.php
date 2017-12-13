@@ -11,9 +11,13 @@
 	$sql = "SELECT * FROM user where user_name='".$username."' and pwd='".$passwd."' limit 1";
 	$res=mysqli_query($conn, $sql);
 	$row=mysqli_fetch_assoc($res);
-	$_SESSION["user_name"] = $row['user_name'].'';
+	
 	if(mysqli_num_rows($res) > 0 ){ 
+	$_SESSION["user_name"] = $row['user_name'].'';
+	$_SESSION['user_id']=$row['user_id'];
+	$_SESSION['loggedin'] = true;
 	return "1";
+	
 	}
 else {
    return "0";

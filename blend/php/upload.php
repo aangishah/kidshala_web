@@ -1,5 +1,17 @@
 
 <?php
+session_start();
+$conn = new mysqli("localhost","root", "", "kidshala");
+	// Check connection
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	}	
+$ob_name=$_POST["object_name"];
+$date=date("Y/m/d H:i:a");
+$cat_id=$_POST['cat_id'];
+
+$ob_name='test';
+$cat_id='1';
 $target_dir = "php/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 $uploadOk = 1;
@@ -31,13 +43,17 @@ if ($_FILES["fileToUpload"]["size"] > 500000) {
     echo "Sorry, only JPG, JPEG, PNG & GIF files are allowed.";
     $uploadOk = 0;
 }*/
-// Check if $uploadOk is set to 0 by an error
-if ($uploadOk == 0) {
+f ($uploadOk == 0) {
     echo "Sorry, your file was not uploaded.";
-// if everything is ok, try to upload file
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+		
+		$sql = "insert into object(bundle_address,object_name,object_view_count,upload_date,cat_id,user_id,admin_uploaded) values('$target_dir','$object_name','0','$date','$cat_id','$_SESSION['user_id']','0')";
+		$stmt = mysqli_prepare($conn,$sql);
+		mysqli_stmt_execute($stmt);
+    
+		
     } else {
         echo "Sorry, there was an error uploading your file.";
     }
