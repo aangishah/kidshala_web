@@ -5,6 +5,12 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 	<head>
+	<style>
+	table, th, td {
+    border: 1px solid black;
+	color:black;
+}
+</style>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>Blend &mdash; Free HTML5 Bootstrap Website Template by FreeHTML5.co</title>
@@ -81,48 +87,46 @@
 				</ul>
 			</nav>
 
-			<div class="fh5co-footer">
-				<p><small>&copy; 2016 Blend Free HTML5. All Rights Reserved.</span> <span>Designed by <a href="http://freehtml5.co/" target="_blank">FreeHTML5.co</a> </span> <span>Demo Images: <a href="http://pexels.com/" target="_blank">Pexels</a></span></small></p>
-				<ul>
-					<li><a href="#"><i class="icon-facebook"></i></a></li>
-					<li><a href="#"><i class="icon-twitter"></i></a></li>
-					<li><a href="#"><i class="icon-instagram"></i></a></li>
-					<li><a href="#"><i class="icon-linkedin"></i></a></li>
-				</ul>
-			</div>
-
 		</aside>
 
 		<div id="fh5co-main">
 
-			
+			<table id="tracklist"   width="500px" >
+	 <tr>
+		<th>Object Name</th> 
+		<th>Upload Date</th> 
+		<th>Object id</th>
+		<th>Object Path</th> 
+		<th>Delete</th> 
+		<th>Update</th> 
+	</tr>					
+	<?php
+		session_start();
+		$conn = new mysqli("localhost","root", "", "kidshala");
+	// Check connection
+	if ($conn->connect_error) {
+		die("Connection failed: " . $conn->connect_error);
+	}	
+	$sql = "SELECT object_id, bundle_address, object_name, object_view_count, upload_date, cat_id, user_id, admin_uploaded,admin_approved FROM object WHERE user_id='".$_SESSION['user_id']."' and admin_approved='1' and approve_status='0';";
+	$res=mysqli_query($conn, $sql);
+		$row=array();
+		 echo "<label><br><br> Total objects:".$res->num_rows."</label>";
+		 echo "<br><br>";
+          while( $row = mysqli_fetch_array($res) ){
+            echo "<tr><td>".
+				$row['object_name']."</td>";
+			echo "<td>".$row['upload_date']."</td>";
+			echo "<td>".$row['object_id']."</td>";			
+			echo "<td>".$row['bundle_address']."</td>";
+			$object_id=$row['object_id'];
+			echo  "<td><a href='delete_.php?id=$object_id'>Delete</a></td>";
+			echo  "<td><a href='a.php?id=$object_id'>Update</a></td>";
 
-			<div class="fh5co-narrow-content animate-box fh5co-border-bottom" data-animate-effect="fadeInLeft">
-				<h2 class="fh5co-heading" >Nature</span></h2>
-				<p><p>Even the all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</p></p>
-
-				<div class="row">
-					<div class="col-md-12">
-						<figure><img src="images/big_1.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive"></figure>
-					</div>
-
-					<div class="col-md-12">
-						<figure><img src="images/big_2.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive">
-							<figcaption>An image caption, pointing has no <a href="#">control</a> about the blind texts it is an almost unorthographic life One day however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of Grammar.</figcaption>
-						</figure>
-					</div>
-					<div class="col-md-12">
-						<figure><img src="images/big_3.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co" class="img-responsive"></figure>
-					</div>
-					<div class="col-md-12">
-					<p class="text-center"><a href="portfolio.html" class="btn btn-primary btn-outline">Load more</a></p>
-					</div>
-					
-				</div>
-
-			</div>
-
-
+			#echo '<img src="data:image/jpeg;base64,'.base64_encode($row['event_image']).'" alt="photo"><br>'."</td></tr>";
+			echo "</tr>";
+          }
+        ?>
+</table>
 			
 		</div>
 	</div>
