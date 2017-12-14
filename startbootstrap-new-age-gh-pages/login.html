@@ -4,6 +4,7 @@ if (isset($_POST['submit'])) {
 $str=include('php/login.php');
 if($str=='1')
 {
+	echo $str;
 	header('Location: ../blend/user_home.html');
 }
 else
@@ -58,7 +59,8 @@ else
 			  <input type='text' name="username" placeholder="Enter your username" required>
 			  <br><br><br>
 			  <input type='password' name="pwd" placeholder="Enter your password" required><br><br><br>
-			  <a href=" " class="btn btn-outline btn-xl js-scroll-trigger">LOGIN</a>
+				<input type="submit" name="submit" value="LOGIN" class="btn btn-outline btn-xl js-scroll-trigger">
+				
     
   </div>
 
