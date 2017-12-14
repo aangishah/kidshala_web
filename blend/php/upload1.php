@@ -1,20 +1,15 @@
 <?php
+$uploadDir = '3d_uploads/';
 
-    $uploaddir = '/';
-    $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
+$verifyToken = md5('unique_salt');
 
-    echo "<p>";
+if (!empty($_FILES)) {
+    $tempFile   = $_FILES['userfile']['tmp_name'];
+    $uploadDir  = $_SERVER['DOCUMENT_ROOT'] . $uploadDir;
+    $targetFile = $uploadDir . $_FILES['userfile']['name'];
+    // Save the file
+    move_uploaded_file($tempFile, $targetFile);
+    echo 1;
+}
 
-    if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
-      echo "File is valid, and was successfully uploaded.\n";
-    } else {
-       echo "Upload failed";
-    }
-
-    echo "</p>";
-    echo '<pre>';
-    echo 'Here is some more debugging info:';
-    print_r($_FILES);
-    print "</pre>";
-
-    ?>
+?>
