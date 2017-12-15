@@ -1,3 +1,19 @@
+<?php
+session_start();
+if (isset($_POST['submit'])) 
+{
+	$str=include('php/login.php');
+	echo $str;
+	if($str=='1')
+	{
+		echo $str;
+		header('Location: /Admin_home/index.html');
+	}
+	else
+	{
+	}
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +24,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>New Age - Start Bootstrap Theme</title>
+    <title>KIDSHALA ADMIN PAGE LOGIN</title>
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -59,7 +75,7 @@
                         <div class="form-group">
                           <div class="row">
                             <div class="col-sm-6 col-sm-offset-3">
-                              <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+                              <input type="submit" name="submit" id="submit" tabindex="4" class="form-control btn btn-login" value="Log In">
                             </div>
                           </div>
                         </div>
@@ -76,23 +92,7 @@
     </header>
 
     
-    
-    <footer>
-      <div class="container">
-        <p>&copy; 2017 Start Bootstrap. All Rights Reserved.</p>
-        <ul class="list-inline">
-          <li class="list-inline-item">
-            <a href="#">Privacy</a>
-          </li>
-          <li class="list-inline-item">
-            <a href="#">Terms</a>
-          </li>
-          <li class="list-inline-item">
-            <a href="#">FAQ</a>
-          </li>
-        </ul>
-      </div>
-    </footer>
+   
 
     <!-- Bootstrap core JavaScript -->
     <script src="vendor/jquery/jquery.min.js"></script>
