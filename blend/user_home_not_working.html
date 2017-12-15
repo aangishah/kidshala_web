@@ -1,4 +1,7 @@
-
+<?php
+session_start();
+echo $_SESSION['user_name'];
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -69,13 +72,14 @@
 		<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle"><i></i></a>
 		<aside id="fh5co-aside" role="complementary" class="border js-fullheight">
 
-			<h1 id="fh5co-logo"><a href="index.html"><img src="images/logo-colored.png" alt="Free HTML5 Bootstrap Website Template"></a></h1>
+			<h1 id="fh5co-logo"><a href="user_home.html"><img src="images/logo-colored.png" alt="Free HTML5 Bootstrap Website Template"></a></h1>
 			<nav id="fh5co-main-menu" role="navigation">
 				<ul>
-					<li class="fh5co-active"><a href="index.html">Home</a></li>
+					<li class="fh5co-active"><a href="user_home.html">Home</a></li>
 					<li><a href="upload.html">UPLOAD</a></li>
 					<li><a href="approved.html">APPROVED</a></li>
 					<li><a href="rejected.html">REJECTED</a></li>
+					<li><a href="php/logout.php">Logout</a></li>
 				</ul>
 			</nav>
 
@@ -89,7 +93,7 @@
 			</div>
 
 		</aside>
-
+		</div>
 		<div id="fh5co-main">
 			<div class="fh5co-gallery">
 
@@ -319,7 +323,7 @@
 				<div class="row">
 					<div class="col-md-12 animate-box" data-animate-effect="fadeInLeft">
 						<p class="fh5co-lead">In case of any query, contact us on kidshala@gmail.com </p>
-						<!--><p><a href="#" class="btn btn-primary btn-outline">Learn More</a></p><!-->
+						<p><a href="#" class="btn btn-primary btn-outline">back to top</a></p>
 					</div>
 					
 				</div>
