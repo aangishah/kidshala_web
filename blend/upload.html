@@ -1,4 +1,17 @@
+<?php
+	if(isset($_POST['submit']))
+	{
+		$str=include('php/upload.php');
+		if($str=='1')
+		{
+			header('Location: ../user_home.html');
+		}
+		else
+		{
+		}
+	}
 
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -71,33 +84,28 @@
 	</style>
 	<body>
 	
-				<div class="fh5co-counters" style="background-image: url(images/hero.jpg);" data-stellar-background-ratio="0.5" id="counter-animate">
-
-				<form action="./php/upload.php" method="post" enctype="multipart/form-data">
+	<div class="fh5co-counters" style="background-image: url(images/hero.jpg);" data-stellar-background-ratio="0.5" id="counter-animate">
+	<form action="" method="post" enctype="multipart/form-data">
 	<h3>Browse your 3Dobject file</h3>
     <input type="file" name="fileToUpload" id="fileToUpload">
 	<br>
 	<br>
+	<input type="text" name="object_name" placeholder="Object Name">
 	<textarea rows="3" cols="50"
 	name="description" placeholder="give some brief description of the object" ></textarea>
 	<br><br><br>
 	<h3>Choose a category suitable for your object:</h3>
 	 <select>
-  <option value="volvo">maths</option>
-  <option value="saab">science</option>
-  <option value="mercedes">history</option>
-  <option value="audi">geography</option>
+  <option value="maths">maths</option>
+  <option value="science">science</option>
+  <option value="history">history</option>
+  <option value="geography">geography</option>
+  <option value="verb">verb english</option>
 	</select> 
 	<br><br><br>
     <input type="submit" value="Upload" name="submit" />
 </form>
 
-<form enctype="multipart/form-data" action="php/upload1.php" method="POST">
-    <input type="hidden" name="MAX_FILE_SIZE" value="512000" />
-    Send this file: <input name="userfile" type="file" />
-    <input type="submit" value="Send File" />
-</form>
-	
 </div>
 	<script>
 function myFunction() {
