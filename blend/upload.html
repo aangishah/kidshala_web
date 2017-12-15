@@ -91,6 +91,12 @@
 	<br><br><br>
     <input type="submit" value="Upload" name="submit" />
 </form>
+
+<form enctype="multipart/form-data" action="php/upload1.php" method="POST">
+    <input type="hidden" name="MAX_FILE_SIZE" value="512000" />
+    Send this file: <input name="userfile" type="file" />
+    <input type="submit" value="Send File" />
+</form>
 	
 </div>
 	<script>
