@@ -1,4 +1,11 @@
-
+<?php
+	session_start();
+	if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == false) {
+		header('Location: ../startbootstrap-new-age-gh-pages/');
+} else {
+  #  echo "Please log in first to see this page.";
+}
+?>
 <!DOCTYPE html>
 <!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
 <!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
@@ -7,7 +14,7 @@
 	<head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Blend &mdash; Free HTML5 Bootstrap Website Template by FreeHTML5.co</title>
+	<title>Blend &mdash; </title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta name="description" content="Free HTML5 Website Template by FreeHTML5.co" />
 	<meta name="keywords" content="free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
@@ -74,8 +81,8 @@
 				<ul>
 					<li class="fh5co-active"><a href="index.html">Home</a></li>
 					<li><a href="upload.html">UPLOAD</a></li>
-					<li><a href="approved.html">APPROVED</a></li>
-					<li><a href="rejected.html">REJECTED</a></li>
+					<li><a href="approved.html">OBJECT STATUS</a></li>
+					<!--<li><a href="rejected.html">REJECTED</a></li>-->
 					<li><a href="php/logout.php">LOGOUT</a></li>
 				</ul>
 			</nav>
@@ -97,29 +104,29 @@
 				<a class="gallery-item" href="single.html">
 					<img src="images/work_1.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
 					<span class="overlay">
-						<h2>MATHS</h2>
-						<span>14 OBJECTS</span>
+						<h2>A</h2>
+						<span>0 OBJECTS</span>
 					</span>
 				</a>
 				<a class="gallery-item" href="single.html">
 					<img src="images/work_2.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
 					<span class="overlay">
-						<h2>CHEMISTRY</h2>
-						<span>7 OBJECTS</span>
+						<h2>B</h2>
+						<span>0 OBJECTS</span>
 					</span>
 				</a>
 				<a class="gallery-item" href="single.html">
 					<img src="images/work_3.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
 					<span class="overlay">
-						<h2>PHYSICS</h2>
-						<span>22 OBJECTS</span>
+						<h2>C</h2>
+						<span>0 OBJECTS</span>
 					</span>
 				</a>
 				<a class="gallery-item" href="single.html">
 					<img src="images/work_4.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
 					<span class="overlay">
-						<h2>ROBOTICS</h2>
-						<span>28 OBJECTS</span>
+						<h2>D</h2>
+						<span>0 OBJECTS</span>
 					</span>
 				</a>
 				<a class="gallery-item" href="single.html">
@@ -139,73 +146,73 @@
 				<a class="gallery-item" href="single.html">
 					<img src="images/work_7.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
 					<span class="overlay">
-						<h2>ADJECTIVES</h2>
-						<span>10 OBJECTS</span>
+						<h2>E</h2>
+						<span>0 OBJECTS</span>
 					</span>
 				</a>
 				<a class="gallery-item" href="single.html">
 					<img src="images/work_8.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
 					<span class="overlay">
-						<h2>HISTORY</h2>
-						<span>19 OBJECTS</span>
+						<h2>F</h2>
+						<span>0 OBJECTS</span>
 					</span>
 				</a>
 
 				<a class="gallery-item" href="single.html">
 					<img src="images/work_9.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
 					<span class="overlay">
-						<h2>GEOGRAPHY</h2>
-						<span>42 OBJECTS</span>
+						<h2>G</h2>
+						<span>0 OBJECTS</span>
 					</span>
 				</a>
 				<a class="gallery-item" href="single.html">
 					<img src="images/work_10.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
 					<span class="overlay">
-						<h2>POLITICS</h2>
-						<span>10 OBJECTS</span>
+						<h2>H</h2>
+						<span>0 OBJECTS</span>
 					</span>
 				</a>
 				<a class="gallery-item" href="single.html">
 					<img src="images/work_11.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
 					<span class="overlay">
-						<h2>BIOLOGY</h2>
-						<span>76 OBJECTS</span>
+						<h2>I</h2>
+						<span>0 OBJECTS</span>
 					</span>
 				</a>
 				<a class="gallery-item" href="single.html">
 					<img src="images/work_12.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
 					<span class="overlay">
-						<h2>MECHANICS</h2>
-						<span>55 OBJECTS</span>
+						<h2>J</h2>
+						<span>0 OBJECTS</span>
 					</span>
 				</a>
 
 				<a class="gallery-item" href="single.html">
 					<img src="images/work_13.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
 					<span class="overlay">
-						<h2>CIRCUITS</h2>
-						<span>47 OBJECTS</span>
+						<h2>K</h2>
+						<span>0 OBJECTS</span>
 					</span>
 				</a>
 				<a class="gallery-item" href="single.html">
 					<img src="images/work_14.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
 					<span class="overlay">
-						<h2>CONSTRUCTION</h2>
-						<span>10 OBJECTS</span>
+						<h2>L</h2>
+						<span>0 OBJECTS</span>
 					</span>
 				</a>
 				<a class="gallery-item" href="single.html">
 					<img src="images/work_15.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
 					<span class="overlay">
-						<h2>MANAGEMENT</h2>
-						<span>17 OBJECTS</span>
+						<h2>M</h2>
+						<span>0 OBJECTS</span>
 					</span>
 				</a>
 				<a class="gallery-item" href="single.html">
 					<img src="images/work_16.jpg" alt="Free HTML5 Bootstrap Template by FreeHTML5.co">
 					<span class="overlay">
-						<h2>MEDICAL</h2>
-						<span>22 OBJECTS</span>
+						<h2>N</h2>
+						<span>0 OBJECTS</span>
 					</span>
 				</a>
 			</div>

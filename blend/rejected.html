@@ -96,8 +96,6 @@
 		<th>Upload Date</th> 
 		<th>Object id</th>
 		<th>Object Path</th> 
-		<th>Delete</th> 
-		<th>Update</th> 
 	</tr>					
 	<?php
 		session_start();
@@ -118,9 +116,7 @@
 			echo "<td>".$row['object_id']."</td>";			
 			echo "<td>".$row['bundle_address']."</td>";
 			$object_id=$row['object_id'];
-			echo  "<td><a href='delete_.php?id=$object_id'>Delete</a></td>";
-			echo  "<td><a href='a.php?id=$object_id'>Update</a></td>";
-
+			
 			#echo '<img src="data:image/jpeg;base64,'.base64_encode($row['event_image']).'" alt="photo"><br>'."</td></tr>";
 			echo "</tr>";
           }
