@@ -117,8 +117,7 @@ table, th, td {
 		<th>Upload Date</th> 
 		<th>Object id</th>
 		<th>Object Path</th> 
-		<th>Delete</th> 
-		<th>Update</th> 
+		<th>Status</th>  
 	</tr>					
 	<?php
 		session_start();
@@ -127,7 +126,7 @@ table, th, td {
 	if ($conn->connect_error) {
 		die("Connection failed: " . $conn->connect_error);
 	}	
-	$sql = "SELECT object_id, bundle_address, object_name, object_view_count, upload_date, cat_id, user_id, admin_uploaded,admin_approved FROM object WHERE user_id='".$_SESSION['user_id']."' and admin_approved='1';";
+	$sql = "SELECT object_id, bundle_address, object_name, object_view_count, upload_date, cat_id, user_id, admin_uploaded,admin_approved,approve_status FROM object WHERE user_id='".$_SESSION['user_id']."';";
 	$res=mysqli_query($conn, $sql);
 		$row=array();
 		 echo "<label><br><br> Total objects:".$res->num_rows."</label>";
@@ -139,8 +138,24 @@ table, th, td {
 			echo "<td>".$row['object_id']."</td>";			
 			echo "<td>".$row['bundle_address']."</td>";
 			$object_id=$row['object_id'];
-			echo  "<td><a href='delete_.php?id=$object_id'>Delete</a></td>";
-			echo  "<td><a href='a.php?id=$object_id'>Update</a></td>";
+			if($row['admin_approved']=='0')
+			{
+				echo  "<td>Pending</td>";
+			}
+			else
+			{
+				if($row['approve_status']=='1')
+				{
+					echo "<td>Approved</td>";
+				}
+				else
+				{
+					echo "<td>Rejected</td>";
+				}
+			}
+			
+			#echo  "<td><a href='delete_.php?id=$object_id'>Delete</a></td>";
+			#echo  "<td><a href='a.php?id=$object_id'>Update</a></td>";
 
 			#echo '<img src="data:image/jpeg;base64,'.base64_encode($row['event_image']).'" alt="photo"><br>'."</td></tr>";
 			echo "</tr>";
